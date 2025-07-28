@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Non-Coffee Drinks</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f3efe9;
+      color: #4a372f;
+    }
+
+    header {
+      position: relative;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 50px;
+      border-bottom: 1px solid #eee;
+      background-color: #223e32;
+    }
+
+    .openbtn {
+      font-size: 1.3rem;
+      cursor: pointer;
+      top: 25px;
+      left: 25px;
+      color: #ffffff;          
+      background: none;
+      border: none;
+      z-index: 1000;
+    }
+
+    .logo1 {
+        font-size: 1.3rem;
+        font-weight: bold;
+        color: #ffffff;
+        position: absolute;
+        margin-left: 35px;
+    }
+
+    .sidenav {
+      height: 100%; /* 100% Full-height */
+      width: 0; /* 0 width - change this with JavaScript */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Stay on top */
+      top: 0; /* Stay at the top */
+      left: 0;
+      background-color: #111; /* Black*/
+      overflow-x: hidden; /* Disable horizontal scroll */
+      padding-top: 60px; /* Place content 60px from the top */
+      transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    }
+
+    .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #ffffff;
+      display: block;
+      transition: 0.3s;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .sidenav .closebtn {
+      position: absolute;
+      top: 0;
+      right: 25px;
+      font-size: 36px;
+      margin-left: 50px;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {padding-top: 15px;}
+      .sidenav a {font-size: 18px;}
+    } 
+
+    nav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 0.95rem;
+      color: #fff;
+      display: block;
+      transition: 0.3s;
+      box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 👈 Box shadow added */
+      display: inline-block;
+      text-align: center;
+      padding: 10px;
+    }
+
+    .about-container {
+        display: flex;
+        padding: 175px;
+        gap: 10px;
+        align-items: flex-start;
+        justify-content: center;
+        background-image: url("img/background6\(1\).jpg");
+        background-size: cover;
+        background-attachment: fixed; 
+        background-position: center;  
+        height: 700px;
+    }
+
+    .hero {
+        background-color: #fff;
+        color: #000000;
+        padding: 40px;
+        width: 70%;
+        height: auto;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        text-align: center;
+        margin: 20px;
+        font-size: 1.1em; 
+        font-family: 'Times New Roman', Times, serif;
+    }
+
+    .hero h1 {
+        font-size: 40px;
+        color:#333;
+    }
+
+    .hero p {
+        max-width: 800px;
+        margin: 20px auto 0;
+        color: #333;
+        font-size: 1.1em;
+        line-height: 1.6;
+        margin-bottom: 0;
+    }
+
+    section {
+      padding: 100px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    h1{
+      color: #38261d;
+    }
+
+    p{
+      color: #fff;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 2em;
+      color: #38261d;
+    }
+
+    .grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }   
+
+    .card {
+      background: rgb(231, 229, 229);
+      border-radius: 10px;
+      box-shadow: 0 5px 15px (0,0,0,0.1);
+      overflow: hidden;
+      width: 250px;
+      text-align: center;
+    }
+
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin: 10px 0 5px;
+      font-size: 1.2em;
+    }
+
+    .card p {
+      font-size: 0.9em;
+      padding: 0 10px 10px;
+      color: #38261d ;
+    }
+
+    .price {
+      font-weight: bold;
+      color: #38261d ;
+    }
+
+    .site-section-secondary {
+      background-color: #223e32; 
+      color: #ffffff; 
+      padding: 50px 20px;
+      font-size: 22px;
+      height: 350px;
+      font-family:'Times New Roman', Times, serif;
+      padding-bottom: 50px;
+      padding-top: 25px;
+      text-align: center;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px;
+        max-width: 1200px;
+        margin: auto;
+        font-size: 25px;
+    }
+
+    .section1 h3 {
+        font-size: 20px;
+        margin-bottom: 0px;
+        color: #ffffff;
+        text-align: left;
+    }
+
+    .section1 p {
+        font-size: 20px;
+        margin: 5px 0;
+        color: #dcdcdc;
+        text-align: left;
+    }
+
+    .box h3 {
+        font-size: 20px;
+        margin-bottom: 0px;
+        color: #ffffff;
+        text-align: center;
+    }
+
+    .box p {
+        font-size: 20px;
+        margin: 5px 0;
+        color: #dcdcdc;
+        text-align: center;
+    }
+
+    .boxes   {
+        text-align: right;
+    }
+
+    .boxes a  {
+        font-size: 20px;
+        margin-bottom: 0px;
+        text-align: right;
+        text-decoration: none;
+        color:#ffffff;
+    }
+
+    footer   {
+        background-color: #223e32;
+        color: #ffffff;
+        padding-bottom: 20px;
+        padding-top: 20px;
+        text-align: center;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: 20px;
+    }
+
+    footer img   {
+        display: block;
+        border-radius: 5px;
+        width: 125px;
+        margin: 0 auto 10px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="openbtn" onclick="openNav()">&#9776;</span>
+    <div class="logo1">Desert Club</div>
+      <div id="mySidenav" class="sidenav">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="index.html">Home</a>
+        <a href="coffeemenu.html">Coffee</a>
+        <a href="non-coffee menu.html">Non-Coffee Drinks</a>
+        <a href="foodmenu.html">Food</a>
+        <a href="about_us.html">About Us</a>
+        <a href="Login.html">Login</a>
+        <a href="Sign_up.html">Sign Up</a>
+    </div>
+
+      <nav>
+        <a href="about_us.html">About Us</a>
+        <a href="foodmenu.html">Menu</a>
+        <a href="Login.html">Login</a>
+		  <a href="contact us.html">Contact Us</a>
+      </nav>
+
+  </header>
+
+  <div class="about-container">
+    <div class="hero">
+      <h1>We serve the Coolest Drinks in the city!</h1>
+      <p>Discover a delightful variety of non-coffee beverages designed to refresh and rejuvenate. From fruity smoothies and creamy milkshakes to herbal teas and sparkling sodas, each drink offers a unique flavor experience without the buzz of caffeine. Perfect for all ages and any time of day, these drinks are crafted to satisfy your cravings and complement every mood.</p>            
+    </div>
+  </div>
+
+  <section>
+    <h2>Our Non-Coffee Drinks</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="img/matcha latte.jpg" alt="Matcha Latte">
+        <h3>Matcha Latte</h3>
+        <p class="price">RM12</p>
+        <p>Smooth Japanese green tea mixed with warm milk.</p>
+      </div>
+      <div class="card">
+        <img src="img/mixed-berry smoothie.jpg" alt="Mixed Berries Smoothie">
+        <h3>Mixed-Berries Smoothie</h3>
+        <p class="price">RM13</p>
+        <p>A cool blend of strawberries, blueberries, and raspberries.</p>
+      </div>
+      <div class="card">
+        <img src="img/hot chocolate.jpg" alt="Hot Chocolate">
+        <h3>Hot Chocolate</h3>
+        <p class="price">RM11</p>
+        <p>Warm cocoa drink topped with marshmallows.</p>
+      </div>
+      <div class="card">
+        <img src="img/honey lemon.jpg" alt="Honey Lemon">
+        <h3>Honey Lemon</h3>
+        <p class="price">RM10</p>
+        <p>Warm lemon juice with a touch of honey.</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+        <div class="site-section-secondary">
+            <div class="site-section-inside">
+
+                <div class="container">
+                    <div class="section1">
+                        <h3>Get in touch</h3>
+                        <p>desertclub@gmail.com</p>
+                        <p>acoffeeaday@gmail.com</p>
+                    </div>
+
+                    <div class="box">
+                        <h3>Location</h3>
+                        <p>17 Chestnut Lane</p>
+                        <p>Serenity park</p>
+                        <p>Dengkil, Selangor 43800</p>
+                        <p>Malaysia</p>
+                    </div>
+
+                    <div class="boxes">
+                        <a href="index.html">About Us</a><br>
+                        <a href="foodmenu.html">Menu</a><br>
+                        <a href="Login.html">Login</a><br>
+                        <a href="Sign_up.html">Sign Up</a><br>
+						<a href="contact us.html">Contact Us</a><br>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="img/logo.jpeg" alt="Footer Logo">
+        <span>Desert Club.<br>Copyright &copy; 2016-3010 </span>
+    </footer>
+
+</body>
+<script>
+function openForm() {
+    document.getElementById("popupOverlay").style.display = "flex"; // Show the overlay
+}
+
+function closeForm() {
+    document.getElementById("popupOverlay").style.display = "none"; // Hide the overlay
+} 
+/* Open the sidenav */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Close/hide the sidenav */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+} 
+</script>
+</html>
+

@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bakery Website</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+            background-color: #fff7f0;
+            color: #333;
+        }
+
+        header {
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            border-bottom: 1px solid #eee;
+            background-color: #223e32;
+        }
+
+        .openbtn {
+        font-size: 30px;
+        cursor: pointer;
+        top: 25px;
+        left: 25px;
+        color: #ffffff;          
+        background: none;
+        border: none;
+        z-index: 1000;
+        }
+
+        .logo1 {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #ffffff;
+            position: absolute;
+            margin-left: 35px;
+        }
+
+        .sidenav {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: #111; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+        }
+
+        .sidenav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 0.95rem;
+        color: #ffffff;
+        display: block;
+        transition: 0.3s;
+        }
+
+        .sidenav a:hover {
+        color: #f1f1f1;
+        }
+
+        .sidenav .closebtn {
+        position: absolute;
+        top: 0;
+        right: 25px;
+        font-size: 0.95rem;
+        margin-left: 50px;
+        }
+
+        @media screen and (max-height: 450px) {
+        .sidenav {padding-top: 15px;}
+        .sidenav a {font-size: 18px;}
+        } 
+
+        nav a {
+        padding: 8px 8px 8px 32px;
+        text-decoration: none;
+        font-size: 0.95rem;
+        color: #fff;
+        display: block;
+        transition: 0.3s;
+        box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* 👈 Box shadow added */
+        display: inline-block;
+        text-align: center;
+        padding: 10px;
+        }
+
+        .about-container {
+            display: flex;
+            padding: 175px;
+            gap: 10px;
+            align-items: flex-start;
+            justify-content: center;
+            background-image: url("img/background6\(1\).jpg");
+            background-size: cover;
+            background-attachment: fixed; 
+            background-position: center;  
+            height: auto;
+        }
+
+        .hero {
+            background-color: #fff;
+            color: #000000;
+            padding: 40px;
+            width: 70%;
+            height: auto;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            margin: 20px;
+            font-size: 1.1em; 
+        }
+
+        .hero h1 {
+            font: Verdana, sans-serif;
+            font-size: 40px;
+            color:#333;
+        }
+
+        .hero p {
+            max-width: 800px;
+            margin: 20px auto 0;
+            color: #333;
+            font-size: 1.1em;
+            line-height: 1.6;
+            margin-bottom: 0;
+        }
+        
+        .section {
+            padding: 50px 20px;
+            text-align: center;
+            background-color: #f2e6de;
+        }
+        
+        .pastries {
+             display: flex;
+             flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .featured-products, .why-choose, .visit-us {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+            width: 250px;
+        }
+        .card img {
+            width: 100%;
+            border-radius: 10px;
+        }
+        .card h3 {
+            margin: 10px 0;
+        }
+        .card button {
+            background-color: #c49a6c;
+            border: none;
+            padding: 10px 15px;
+            color: white;
+            margin-top: 10px;
+            cursor: pointer;
+        }
+        .highlight {
+            background-color: #fff;
+        }
+        
+        .site-section-secondary {
+            background-color: #223e32; 
+            color: #ffffff; 
+            padding: 50px 20px;
+            font-size: 22px;
+            height: 350px;
+            font-family:'Times New Roman', Times, serif;
+            padding-bottom: 50px;
+            padding-top: 25px;
+            text-align: center;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            max-width: 1200px;
+            margin: auto;
+            font-size: 25px;
+        }
+
+        .section1 h3 {
+            font-size: 20px;
+            margin-bottom: 0px;
+            color: #ffffff;
+            text-align: left;
+        }
+
+        .section1 p {
+            font-size: 20px;
+            margin: 5px 0;
+            color: #dcdcdc;
+            text-align: left;
+        }
+
+        .box h3 {
+            font-size: 20px;
+            margin-bottom: 0px;
+            color: #ffffff;
+            text-align: center;
+        }
+
+        .box p {
+            font-size: 20px;
+            margin: 5px 0;
+            color: #dcdcdc;
+            text-align: center;
+        }
+
+        .boxes   {
+            text-align: right;
+        }
+
+        .boxes a  {
+            font-size: 20px;
+            margin-bottom: 0px;
+            text-align: right;
+            text-decoration: none;
+            color:#ffffff;
+        }
+
+        footer   {
+            background-color: #223e32;
+            color: #ffffff;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            text-align: center;
+            font-family: 'Times New Roman', Times, serif;
+            font-size: 20px;
+        }
+
+        footer img   {
+            display: block;
+            border-radius: 5px;
+            width: 125px;
+            margin: 0 auto 10px;
+        }
+    </style>
+</head>
+<body>
+        <header>
+        <span class="openbtn" onclick="openNav()">&#9776;</span>
+        <div class="logo1">Desert Club</div>
+        <div id="mySidenav" class="sidenav">
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+            <a href="index.html">Home</a>
+            <a href="coffeemenu.html">Coffee</a>
+            <a href="non-coffee menu.html">Non-Coffee Drinks</a>
+            <a href="foodmenu.html">Food</a>
+            <a href="about_us.html">About Us</a>
+            <a href="Login.html">Login</a>
+            <a href="Sign_up.html">Sign Up</a>
+        </div>
+
+        <nav>
+            <a href="about_us.html">About Us</a>
+            <a href="foodmenu.html">Menu</a>
+            <a href="Login.html">Login</a>
+			<a href="contact us.html">Contact Us</a>
+        </nav>
+
+    </header>
+
+    <div class="about-container">
+        <div class="hero">
+            <h1>Freshly Baked, Just for You!</h1>
+            <p>Indulge in our delightful selection of handcrafted cakes and freshly baked pastries. From rich, decadent slices to light and flaky treats, each item is made with quality ingredients and a touch of love. Whether you're in the mood for something classic like a moist banana loaf or something bold like a chocolate-drizzled croissant, our menu has the perfect sweet to pair with your favorite coffee or tea.</p>            </div>
+    </div>
+
+    <section class="section">
+        <h2>Customer Favourites</h2>
+        <p>Treats our regulars rave for</p><br>
+        <div class="featured-products">
+            <div class="card">
+                <img src="img/strawbella 2.jpg" alt="Bread">
+                <h3>Strawbella</h3>
+                <p>Perfect conbonation of sweet and savoury</p>
+                <button>Explore</button>
+            </div>
+            <div class="card">
+                <img src="img/Dark Desire.jpg" alt="Cake">
+                <h3>Dark Desire</h3>
+                <p>The grail of Indulgence, dived in with chocolate</p>
+                <button>Explore</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section highlight">
+        <h2>Sweet Treats</h2><br>
+        <div class="pastries">
+            <div class="card">
+                <img src="img/CinnaSwirl.jpg" alt="Artisan Bread">
+                <h3>CinnaSwirl</h3>
+                <p>Soft, fluffy roll swirled with warm cinnamon sugar and topped with a rich, gooey glaze.</p>
+                <button>RM 11</button>
+            </div>
+            <div class="card">
+                <img src="img/Lemon Lush.jpg" alt="Pastry">
+                <h3>Lemon Lush</h3>
+                <p>A crisp, buttery crust filled with smooth lemon curd and topped special cream.Bright, tangy, and perfectly sweet.</p>
+                <button>RM 12</button>
+            </div>
+            <div class="card">
+                <img src="img/Morning Melt.jpg" alt="Custom Cake">
+                <h3>Morning Melt</h3>
+                <p>A buttery, flaky pastry filled with rich, melted chocolate and baked to golden perfection. </p>
+                <button>RM 10</button>
+            </div>
+             <div class="card">
+                <img src="img/Strawbella.jpg" alt="Custom Cake">
+                <h3>Strawbella</h3>
+                <p>Buttery tart shell filled with silky vanilla custard and topped with a crown of fresh, juicy strawberries </p>
+                <button>RM 15</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <h2>Baked Delights</h2><br>
+        <div class="visit-us">
+            <div class="card">
+                <img src="img/Dark Desire.jpg" alt="Staff">
+                <h3>Dark Desire</h3>
+                <p>Velvety chocolate sponge cake topped with smooth dark chocolate ganache. Mouth melting sesation, delivering a perfect balance of sweetness and depth.</p>
+                 <button>RM 15</button>
+            </div>
+            <div class="card">
+                <img src="img/Golden Orchard Crunch.jpg" alt="Coissants">
+                <h3>Golden Orchard Crunch</h3>               
+                <p>Luscious fusion of creamy cheesecake and spiced apple crisp, layered over a buttery graham cracker crust.</p>
+                <button>RM 14</button>
+            </div>
+            <div class="card">
+                <img src="img/Uji CHeese.jpg" alt="Loaf">
+                <h3>Uji Cheese</h3>
+                <p>Crafted with premium Uji matcha from Kyoto, this cheesecake offers a delicate balance of earthy green tea and rich, creamy layers.
+                    t’s the perfect balance of smooth, sweet, and spiced in every bite.</p>
+                 <button>RM 17</button>
+            </div>
+              <div class="visit-us">
+            <div class="card">
+                <img src="img/Going Banans!.jpg" alt="Staff">
+                <h3>Going Bananas!</h3>
+                <p>Soft, moist, and rich with the sweetness of ripe bananas, this classic loaf is comfort baked into every bite. A hint of cinnamon and a golden crust make it perfect for pairing with coffee.</p>
+               <button>RM 9</button>
+        </div>
+    </section>
+
+    <footer>
+        <div class="site-section-secondary">
+            <div class="site-section-inside">
+
+                <div class="container">
+                    <div class="section1">
+                        <h3>Get in touch</h3>
+                        <p>desertclub@gmail.com</p>
+                        <p>acoffeeaday@gmail.com</p>
+                    </div>
+
+                    <div class="box">
+                        <h3>Location</h3>
+                        <p>17 Chestnut Lane</p>
+                        <p>Serenity park</p>
+                        <p>Dengkil, Selangor 43800</p>
+                        <p>Malaysia</p>
+                    </div>
+
+                    <div class="boxes">
+                        <a href="index.html">About Us</a><br>
+                        <a href="foodmenu.html">Menu</a><br>
+                        <a href="Login.html">Login</a><br>
+                        <a href="Sign_up.html">Sign Up</a><br>
+						<a href="contact us.html">Contact Us</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img src="img/logo.jpeg" alt="Footer Logo">
+        <span>Desert Club.<br>Copyright &copy; 2016-3010 </span>
+    </footer>
+</body>
+<script>
+function openForm() {
+    document.getElementById("popupOverlay").style.display = "flex"; // Show the overlay
+}
+
+function closeForm() {
+    document.getElementById("popupOverlay").style.display = "none"; // Hide the overlay
+} 
+/* Open the sidenav */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%";
+}
+
+/* Close/hide the sidenav */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+} 
+</script>
+</html>

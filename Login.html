@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Login</title>
+    <style>
+        body{font-family: Arial, sans-serif;
+            background-color: #fef5dd;
+            display: grid;
+            justify-content: center;
+            align-content: center;
+            height: 100vh;
+            background-image: url(bg.jpg);
+            background-repeat:no-repeat;
+            background-position:center;
+            background-size:cover;}
+
+        .login_box{background-color: white;
+                padding: 30px;
+                box-shadow: 0 4px 8px #7a7a7a;
+                width: 300px;
+                text-align: center;
+                border-radius: 10px;
+                transform: translateX(-100%);
+                opacity: 0;
+                animation: slideIn 0.6s ease-out forwards;}
+
+        h2 {margin-bottom: 20px;
+            font-size: 24px;}
+
+        input{width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            box-sizing: border-box;
+            border-radius: 10px}
+
+        button{background-color:#5945a0 ;
+            color: white;
+            padding: 14px 20px;
+            width: 100%;
+            border-style: none;
+            border-radius: 10px}
+
+        button:hover{background-color: #874caf;}
+
+/*1. Password reset and sign up*/
+        .thing1{margin-top: 20px;
+            font-size: 14px;}
+
+        .thing1 a{color: #001aff;}
+
+        .thing1 a:hover{text-decoration: underline;}
+/*Password reset and sign up*/
+
+        #error {margin-top: 10px;
+            font-size: 14px;
+            color: red;}
+
+        @keyframes slideIn {to{transform: translateX(0);
+                            opacity: 1;}}
+    </style>
+</head>
+
+<body>
+    <div class="login_box">
+        <h2>Login</h2>
+        <form id="loginForm">
+            <input type="email" id="email" name="email" placeholder="Email" required>
+            <input type="password" id="password" name="password" placeholder="Password" required>
+            <button type="submit">Login</button>
+        </form>
+
+        <div id="error"></div>
+
+        <div class="thing1">
+            <p>Forgot your password? <a href="pw_reset.html">Reset it here</a></p>
+            <p>Don't have an account? <a href="Sign_up.html">Sign up</a></p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function(e){e.preventDefault();
+                                                                                    const email = document.getElementById('email').value.trim();
+                                                                                    const password = document.getElementById('password').value;
+
+                                                                                    const savedUser = JSON.parse(localStorage.getItem('user'));
+                                                                                    const msgDiv = document.getElementById('error');
+
+                                                                                    if (!savedUser) {msgDiv.textContent = "No user found. Please sign up first.";
+                                                                                                    return;}
+
+                                                                                    if (savedUser.email === email && savedUser.password === password) {msgDiv.style.color = "green";
+                                                                                                                                                    msgDiv.textContent = "Login successful!";
+                                                                                                                                                    window.location.href= ""}
+                                                                                    else {msgDiv.style.color = "red";
+                                                                                        msgDiv.textContent = "Invalid email or password.";}});
+
+    </script>
+</body>
+</html>
