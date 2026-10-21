@@ -4,7 +4,8 @@ A multi-page website for **Desert Club**, a fictional neighborhood café whose t
 
 Created as a group project for **Web Fundamentals** at Sunway University.
 
-<!-- Add screenshots here, e.g. ![Homepage](screenshots/home.png) -->
+## Demo
+Project Video Walkthrough (-)
 
 ## Pages
 
